@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Imenik</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/angular-route.min.js"></script>
+    <script src="js/angular.min.js"></script>
+    <script src="js/jquery-2.1.3.min.js"></script>  
+</head>
+<body ng-app="Moja aplikacija">
+    <div ng-controller="myController" id="main">
+  
+         <div id="main2">
+        <input type="text" class="input" ng-model="letter">
+        <hr>
+        <div id="table"> <span ng-click="filter('Ime')">Ime</span> <span ng-click="filter('Prezime')">Prezime</span> <span ng-click="filter('Broj')">Broj</span>
+        <button ng-click="add()" class="add">Dodaj</button>
+        </div>
+        <hr>
+        <div ng-repeat="some in people | orderBy:filters | filter:letter" class="table">
+        <hr> <span>{{some.Ime}}</span> <span>{{some.Prezime}}</span> <span>{{some.Broj}}</span>
+        <button ng-click="change(some)">Promijeni</button>
+        <button ng-click="delete(some)">Izbriši</button>
+        </div>
+        </div>
+        <div class="adding">
+        <p><span>Ime</span> <span>Prezime</span> <span>Broj </span></p>
+        <hr>
+        <input type="text" ng-model="editIme">
+        <input type="text" ng-model="editPrezime">
+        <input type="text" ng-model="editBroj">
+        <div>
+        <button ng-click="addNew()">Dodaj</button>
+        </div>
+        </div>
+        <div class="edit">
+        <p><span>Ime</span> <span>Prezime</span> <span>Broj </span></p>
+        <hr>
+        <input type="text" ng-model="editIme">
+        <input type="text" ng-model="editPrezime">
+        <input type="text" ng-model="editBroj">
+        <div>
+        <button ng-click="save()">Spasi</button>
+        </div>
+        </div>
+    </div>
+</body>
+<script src='js/app.js'></script>
+</html>
